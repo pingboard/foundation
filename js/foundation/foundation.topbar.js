@@ -253,14 +253,15 @@
       });
 
       // Go up a level on Click
+      $(this.scope).off('click.fndtn', '.top-bar .has-dropdown .back, [data-topbar] .has-dropdown .back')
       $(this.scope).on('click.fndtn', '.top-bar .has-dropdown .back, [data-topbar] .has-dropdown .back', function (e) {
         e.preventDefault();
-
         var $this = $(this),
             topbar = $this.closest('.top-bar, [data-topbar]'),
             section = topbar.find('section, .section'),
             $movedLi = $this.closest('li.moved'),
             $previousLevelUl = $movedLi.parent();
+        console.log(topbar.data('index'));
 
         topbar.data('index', topbar.data('index') - 1);
 
